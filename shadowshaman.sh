@@ -1,4 +1,5 @@
 #!/bin/bash
+pkill ssserver
 sudo apt install curl -y
 clear
 ip=$(curl icanhazip.com)
@@ -29,19 +30,19 @@ fi
 
 echo -e $"\e[32mWhich encryption?\n1) chacha20-ietf-poly1305 (fastest)\n2) chacha20-ietf\n3) chacha20\n4) salsa20\n5) aes-256-cfb (standard)\n6) aes-256-gcm\n7) aes-256-ctr"
 read mtd
-if [ "$local" == "1" ] ; then
+if [ "$mtd" == "1" ] ; then
     method=chacha20-ietf-poly1305
-elif [ "$local" == "2" ] ; then
+elif [ "$mtd" == "2" ] ; then
 	method=chacha20-ietf
-elif [ "$local" == "3" ] ; then
+elif [ "$mtd" == "3" ] ; then
 	method=chacha20
-elif [ "$local" == "4" ] ; then
+elif [ "$mtd" == "4" ] ; then
 	method=salsa20
-elif [ "$local" == "5" ] ; then
+elif [ "$mtd" == "5" ] ; then
 	method=aes-256-cfb
-elif [ "$local" == "6" ] ; then
+elif [ "$mtd" == "6" ] ; then
 	method=aes-256-gcm
-elif [ "$local" == "7" ] ; then
+elif [ "$mtd" == "7" ] ; then
 	method=aes-256-ctr
 else
     echo -e $"\e[31mWrong input! Exiting.\e[39m"
