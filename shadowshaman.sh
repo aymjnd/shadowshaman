@@ -32,7 +32,7 @@ method=aes-256-cfb
 
 sudo apt update
 sudo apt install -y python python-pip
-python -m pip install --upgrade pip
+sudo python -m pip install --upgrade pip
 sudo pip install shadowsocks
 
 cd /bin
