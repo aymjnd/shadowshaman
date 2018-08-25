@@ -6,10 +6,11 @@ echo -e $"\e[32mWould you like to use your local ip?\n1) $netip (recommended)\n2
 read local
 
 if [ "$local" == "1" ] ; then
+    ip=$(curl icanhazip.com)
+
+elif [ "$local" == "2" ] ; then
 	echo -e $"\e[32mWhat is your Local IP?\e[39m"
 	read ip
-elif [ "$local" == "2" ] ; then
-	ip=$(curl icanhazip.com)
 else
     echo -e $"\e[31mWrong input! Exiting.\e[39m"
 fi
