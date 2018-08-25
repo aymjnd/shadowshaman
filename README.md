@@ -1,5 +1,5 @@
 # shadowshaman
-the noob proof debian/ubuntu socks/proxy/vpn server spawner afap. make sure the port is open and free or else it wont start. working on most debian/ubuntu and also raspberry pi. if it didn't start for the first time because you chose the wrong port, just run the script again with a new port.
+the noob proof debian/ubuntu socks/proxy/vpn server spawner afap. make sure the port is open and free or else it wont start. working on most debian/ubuntu. if it didn't start for the first time because you chose the wrong port, just run the script again with a new port.
 
 ```
 wget https://raw.githubusercontent.com/aymjnd/shadowshaman/master/shadowshaman.sh
