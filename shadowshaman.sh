@@ -79,12 +79,13 @@ cd
 grep -q -F '/bin/shadowsocks-start >> /dev/null &' /etc/rc.local || sed -i "`wc -l < /etc/rc.local`i\\/bin/shadowsocks-start >> /dev/null &\\" /etc/rc.local
 shadowsocks-start
 
-url=$(echo "$method:$password@$ip:$port" | base64)
+url=$(echo -n "$method:$password@$ip:$port" | base64)
 b64url="ss://$url"
 
 clear
 echo -e "===================Shadowshaman=0.1c==================="
 echo -e "\nShadowsocks started! \e[32m$ip:$port\e[39m."
 echo -e "\nShadowsocks uri:\n\e[32m$b64url#shadowshaman\e[39m"
+echo -e "\nOutline uri:\n\e[32m$b64url#shadowshaman\e[39m"
 echo -e "\nRun \e[31mshadowsocks-stop \e[39mto stop.\nShadowsocks installed as service and will auto restart on reboot\n"
 echo -e "========================AYMJND========================="
