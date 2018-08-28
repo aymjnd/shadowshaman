@@ -53,7 +53,7 @@ echo -e $"\e[32mYour password?\e[39m"
 read password
 
 sudo apt update
-sudo apt install -y python python-pip python-m2crypto libsodium18
+sudo apt install -y python python-pip python-m2crypto libsodium-dev
 sudo python -m pip install --upgrade pip
 sudo pip install --upgrade https://github.com/shadowsocks/shadowsocks/archive/master.zip
 
