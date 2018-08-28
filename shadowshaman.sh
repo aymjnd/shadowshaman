@@ -83,7 +83,7 @@ url=$(echo -n "$method:$password@$ip:$port" | base64)
 b64url="ss://$url"
 
 clear
-echo -e "===================Shadowshaman=0.1c==================="
+echo -e "===================Shadowshaman=0.1d==================="
 echo -e "\nShadowsocks started! \e[32m$ip:$port\e[39m."
 echo -e "\nYour URI:\n\e[32m$b64url#shadowshaman\e[39m"
 echo -e "Working with shadowsocks windows client and Outline!"
