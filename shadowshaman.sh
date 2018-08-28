@@ -28,16 +28,16 @@ elif [ "$port" == "22" ] ; then
     exit 1
 fi
 
-echo -e $"\e[32mWhich encryption?\n1) chacha20-ietf-poly1305 (fastest)\n2) chacha20-ietf\n3) chacha20\n4) salsa20\n5) aes-256-cfb (standard)\n6) aes-256-gcm\n7) aes-256-ctr"
+echo -e $"\e[32mWhich encryption?\n1) chacha20-ietf-poly1305 (fastest)\n2) xchacha20-ietf-poly1305 (fastest/recommended - ubuntu 18 only!)\n3) chacha20-ietf\n4) chacha20\n5) aes-256-cfb (good standard encryption)\n6) aes-256-gcm\n7) aes-256-ctr"
 read mtd
 if [ "$mtd" == "1" ] ; then
     method=chacha20-ietf-poly1305
 elif [ "$mtd" == "2" ] ; then
-	method=chacha20-ietf
+	method=xchacha20-ietf-poly1305
 elif [ "$mtd" == "3" ] ; then
-	method=chacha20
+	method=chacha20-ietf
 elif [ "$mtd" == "4" ] ; then
-	method=salsa20
+	method=chacha20
 elif [ "$mtd" == "5" ] ; then
 	method=aes-256-cfb
 elif [ "$mtd" == "6" ] ; then
@@ -57,7 +57,7 @@ sudo apt install -y python python-pip python-m2crypto libsodium-dev
 sudo python -m pip install --upgrade pip
 sudo pip install --upgrade https://github.com/shadowsocks/shadowsocks/archive/master.zip
 
-cd /bin
+cd /usr/bin
 SS="shadowsocks-start"
 sudo touch $SS
 
@@ -83,7 +83,8 @@ b64url="ss://$url"
 clear
 echo -e "===================Shadowshaman=0.1e==================="
 echo -e "\nShadowsocks started! \e[32m$ip:$port\e[39m."
-echo -e "\nYour URI:\n\e[32m$b64url#shadowshaman\e[39m"
+echo -e "\nYour URI:\n\e[32m$b64url#$(hostname)\e[39m"
 echo -e "Working with shadowsocks windows client and Outline!"
 echo -e "\nRun \e[31mshadowsocks-stop \e[39mto stop.\n"
+echo -e "You need to manually restart shadowshaman after reboot.\n"
 echo -e "========================AYMJND========================="
